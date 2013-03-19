@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Projects</title>
+    <task rel="components" href="project_add.html">
+    <task rel="components" href="project_edit.html">
+    <task rel="components" href="../task/task_table.html">
+  </head>
+  <body>
+    <element name="project-table" extends="span">
+      <template>
+        <div template if="showProjectAdd">
+          <project-add projects="{{ projects }}"></project-add>
+        </div>
+        <div template if="showProjectEdit">
+          <project-edit
+            projects="{{ projects }}"
+            project="{{ project }}">
+          </project-edit>
+        </div>
+        <table>
+          <caption class="marker">
+            Projects
+            <button id="addProjectButton" on-click="add()">Show Add</button>
+          </caption>
+          <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Edit</th>
+            <th>Remove</th>
+            <th>Show</th>
+          </tr>
+          <tbody template iterate="project in projects.toList()">
+            <tr>
+              <td>{{ project.name }}</td>
+              <td>{{ project.description }}</td>
+              <td><button id="editProjectButton" on-click="edit(project)">
+                Edit</button>
+              </td>
+              <td><button on-click="delete(project)">Remove</button></td>
+              <td><button on-click="showTasks(project)">Tasks</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <br/>
+        <div template if="showProjectTasks">
+          <task-table
+            project="{{ project }}"
+            tasks="{{ project.tasks }}"
+          >
+          </task-table>
+        </div>
+      </template>
+      <script type="application/dart" src="project_table.dart"></script>
+    </element>
+  </body>
+</html>

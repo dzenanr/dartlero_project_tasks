@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Add</title>
+  </head>
+  <body>
+    <element name="project-add" extends="span">
+      <template>
+        <div>
+          <br/>
+          <label for="add-project-name">Name</label>
+          <input id="add-project-name" type="text" size="32"/>
+          <br/>
+          <label for="add-project-description">Description</label>
+          <input id="add-project-description" type="text" size="96"/>
+          <br/>
+          <button on-click="add()">Add</button>
+          <span id="add-project-message"></span>
+        </div>
+      </template>
+      <script type="application/dart" src="project_add.dart"></script>
+    </element>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Edit</title>
+  </head>
+  <body>
+    <element name="project-edit" extends="span">
+      <template>
+        <div>
+          <br/>
+          <label>Name</label>
+          <input readonly="true" value="{{ project.name }}"/>
+          <br/>
+          <label for="edit-project-description">Description</label>
+          <input id="edit-project-description"
+            type="text" size="96" value="{{ project.description }}"
+          />
+          <br/>
+          <button on-click="update()">Update</button>
+        </div>
+      </template>
+      <script type="application/dart" src="project_edit.dart"></script>
+    </element>
+  </body>
+</html>

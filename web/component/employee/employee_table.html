@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Employees</title>
+    <link rel="components" href="employee_add.html">
+    <link rel="components" href="employee_edit.html">
+    <link rel="components" href="../task/task_table.html">
+  </head>
+  <body>
+    <element name="employee-table" extends="span">
+      <template>
+        <div template if="showEmployeeAdd">
+          <employee-add employees="{{ employees }}"></employee-add>
+        </div>
+        <div template if="showEmployeeEdit">
+          <employee-edit
+            employees="{{ employees }}"
+            employee="{{ employee }}">
+          </employee-edit>
+        </div>
+        <table>
+          <caption class="marker">
+            Employees
+            <button id="addEmployeeButton" on-click="add()">Show Add</button>
+          </caption>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Remove</th>
+            <th>Show</th>
+          </tr>
+          <tbody template iterate="employee in employees.toList()">
+            <tr>
+              <td>{{ employee.firstName }}</td>
+              <td>{{ employee.lastName }}</td>
+              <td>{{ employee.email }}</td>
+              <td><button id="editEmployeeButton" on-click="edit(employee)">
+                Edit</button>
+              </td>
+              <td><button on-click="delete(employee)">Remove</button></td>
+              <td><button on-click="showTasks(employee)">Tasks</button></td>
+            </tr>
+          </tbody>
+        </table>
+        <br/>
+        <div template if="showEmployeeTasks">
+          <task-table
+            employee="{{ employee }}"
+            tasks="{{ employee.tasks }}"
+          >
+          </task-table>
+        </div>
+      </template>
+      <script type="application/dart" src="employee_table.dart"></script>
+    </element>
+  </body>
+</html>

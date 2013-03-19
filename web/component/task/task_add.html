@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Task Add</title>
+  </head>
+  <body>
+    <element name="task-add" extends="span">
+      <template>
+        <div>
+          <br/>
+          <span class="marker">Task of {{ project.name }} project</span>
+          <br/>
+          <label for="add-task-description">Description</label>
+          <input id="add-task-description" type="text" size="96"/>
+          <br/>
+          <button on-click="add()">Add</button>
+          <span id="add-task-message"></span>
+        </div>
+      </template>
+      <script type="application/dart" src="task_add.dart"></script>
+    </element>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Category Edit</title>
+  </head>
+  <body>
+    <element name="employee-edit" extends="span">
+      <template>
+        <div>
+          <br/>
+          <label>Name</label>
+          <input readonly="true" value="{{ employee.firstName }} {{ employee.lastName }}"/>
+          <br/>
+          <label for="edit-employee-email">Email</label>
+          <input id="edit-employee-email"
+            type="text" size="48" value="{{ employee.email }}"
+          />
+          <br/>
+          <button on-click="update()">Update</button>
+        </div>
+      </template>
+      <script type="application/dart" src="employee_edit.dart"></script>
+    </element>
+  </body>
+</html>

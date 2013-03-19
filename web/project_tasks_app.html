@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Project Tasks</title>
+    <link rel="components" href="component/employee/employee_table.html">
+    <link rel="components" href="component/project/project_table.html">
+    <link rel="stylesheet" href="css/input.css"/>
+    <link rel="stylesheet" href="css/link.css"/>
+    <link rel="stylesheet" href="css/marker.css"/>
+    <link rel="stylesheet" href="css/page.css"/>
+    <link rel="stylesheet" href="css/table.css"/>
+  </head>
+  <body>
+    <div class="page-title">
+      Project Tasks
+      <button on-click="save()">Save</button>
+    </div>
+
+    <employee-table
+      employees="{{ employees }}">
+    </employee-table>
+    
+    <project-table
+      projects="{{ projects }}">
+    </project-table>
+
+    <script type="application/dart" src="project_tasks_app.dart"></script>
+    <script src="packages/browser/dart.js"></script>
+  </body>
+</html>

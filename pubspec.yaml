@@ -1,0 +1,10 @@
+name: dartlero_project_tasks
+version: 0.0.1
+author: Dzenan Ridjanovic <dzenanr@gmail.com>
+description: An example with a many-to-many relationship and a lookup web component.
+homepage: http://ondart.me/
+dependencies:
+  browser: any
+  web_ui: any
+  dartlero:
+    git: git://github.com/dzenanr/dartlero.git
