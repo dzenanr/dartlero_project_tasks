@@ -22,7 +22,7 @@ class ProjectAdd extends WebComponent {
 	    project.description = description.value;
       if (projects.add(project)) {
         message.text = 'added';
-        var projectTable = query('project-table').xtag;
+        var projectTable = query('#project-table').xtag;
         projectTable.projects.order();
       } else {
         message.text = 'project name already in use';

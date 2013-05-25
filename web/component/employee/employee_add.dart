@@ -32,7 +32,7 @@ class EmployeeAdd extends WebComponent {
 	    employee.email = email.value;
       if (employees.add(employee)) {
         message.text = 'added';
-        var employeeTable = query('employee-table').xtag;
+        var employeeTable = query('#employee-table').xtag;
         employeeTable.employees.order();
       } else {
         message.text = 'employee email already in use';

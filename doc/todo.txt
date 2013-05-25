@@ -1,0 +1,11 @@
+Todo
+
+- remove the Save button and save data automatically
+
++ semantic relationship between Project and Employee is many-to-many with Task as the intersection concept:
+  Project >--< Employee => Project --< Task >-- Employee
++ Project --< Task relationship is internal; Employee --< Task relationship is external
++ projects are saved with their corresponding tasks; employees are saved without tasks
++ internal children (project tasks) may be added, edited and removed
++ external children (employee tasks) may be only edited
+- introduce additions and removals of employee tasks

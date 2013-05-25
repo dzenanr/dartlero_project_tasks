@@ -8,9 +8,11 @@ class TasksModel extends ConceptModel {
   
   String jsonDirPath;
   
+  TasksModel.private() {}
+  
   static TasksModel one() {
     if (tasksModel == null) {
-      tasksModel = new TasksModel();
+      tasksModel = new TasksModel.private();
     } 
     return tasksModel;
   }

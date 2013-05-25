@@ -7,22 +7,21 @@ import 'package:web_ui/web_ui.dart';
 class TaskAdd extends WebComponent {
   Project project;
   Tasks tasks;
+  Employees employees = TasksModel.one().employees;
 
   add() {
     InputElement description = query("#add-task-description");
+    SelectElement employeeLookup = query("#employee-lookup");
     Element message = query("#add-task-message");
     var error = false;
     message.text = '';
-    /*
-    if (code.value.trim() == '') {
-      message.text = 'web task name is mandatory; ${message.text}';
-      error = true;
-    }
-    */
     if (!error) {
       var task = new Task();
+      task.project = project;
+      String employeeCode = employeeLookup.value;
+      task.employee = TasksModel.one().employees.find(employeeCode);
       task.description = description.value;
-      if (tasks.add(task)) {
+      if (tasks.add(task) && task.employee.tasks.add(task)) {
         message.text = 'added';
         var taskTable = document.query('#task-table').xtag;
         taskTable.tasks.order();

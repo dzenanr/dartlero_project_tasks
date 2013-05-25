@@ -37,6 +37,7 @@ class Project extends ConceptEntity<Project> {
     name = entityMap['name'];
     description = entityMap['description'];
     tasks.fromJson(entityMap['tasks']);
+    tasks.forEach((task) {task.project = this;});
   }
 }
 

@@ -16,30 +16,35 @@
             tasks="{{ tasks }}">
           </task-add>
         </div>
-        <div template if="showLinkEdit">
+        <div template if="showTaskEdit">
           <task-edit
-            project="{{ project }}"
-            tasks="{{ tasks }}"
             task="{{ task }}">
           </task-edit>
         </div>
         <table>
-          <caption class="marker">
-            Tasks of {{ project.code }} project
+          <caption template if="project != null" class="marker">
+            Tasks of {{ project.name }} 
             <button id="addTaskButton" on-click="add()">Show Add</button>
           </caption>
+          <caption template if="employee != null" class="marker">
+            Tasks of {{ employee.name }} 
+          </caption>
           <tr>
+            <th template if="employee != null">Project</th>
+            <th template if="project != null">Employee</th>
             <th>Description</th>
             <th>Edit</th>
-            <th>Remove</th>
+            <th template if="project != null">Remove</th>
           </tr>
           <tbody template iterate="task in tasks.toList()">
             <tr>
+              <td template if="employee != null">{{ task.project.name }}</td>
+              <td template if="project != null">{{ task.employee.name }}</td>
               <td>{{ task.description }}</td>
               <td><button id="editTaskButton" on-click="edit(task)">
                 Edit</button>
               </td>
-              <td><button on-click="delete(task)">Remove</button></td>
+              <td template if="project != null"><button on-click="delete(task)">Remove</button></td>
             </tr>
           </tbody>
         </table>

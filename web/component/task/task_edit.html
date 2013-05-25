@@ -3,30 +3,25 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Link Edit</title>
+    <title>Task Edit</title>
   </head>
   <body>
     <element name="task-edit" extends="span">
       <template>
         <div>
           <br/>
-          <span class="marker">Link of {{ category.code }} category</span>
+          <span class="marker">Task of {{ task.project.name }} project</span>
           <br/>
-          <label>Name</label>
-          <input readonly="true" value="{{ link.code }}"/>
+          <label>Employee</label>
+          <input readonly="true" value="{{ task.employee.name }}"/>
           <br/>
-          <label for="edit-link-url">Web Link</label>
-          <input id="edit-link-url"
-            type="text" size="96" value="{{ link.url.toString() }}"
-          />
-          <br/>
-          <label for="edit-link-description">Description</label>
-          <input id="edit-link-description"
-            type="text" size="96" value="{{ link.description }}"
+          <label for="edit-task-description">Description</label>
+          <input id="edit-task-description"
+            type="text" size="96" value="{{ task.description }}"
           />
           <br/>
           <button on-click="update()">Update</button>
-          <span id="edit-link-message"></span>
+          <span id="edit-task-message"></span>
         </div>
       </template>
       <script type="application/dart" src="task_edit.dart"></script>

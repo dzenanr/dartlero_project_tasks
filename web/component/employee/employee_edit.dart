@@ -10,7 +10,7 @@ class EmployeeEdit extends WebComponent {
   update() {
     InputElement email = query("#edit-employee-email");
     employee.email = email.value;
-    var employeeTable = document.query('employee-table').xtag;
+    var employeeTable = document.query('#employee-table').xtag;
     employeeTable.showEmployeeEdit = false;
   }
 

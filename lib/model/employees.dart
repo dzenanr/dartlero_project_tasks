@@ -6,6 +6,8 @@ class Employee extends ConceptEntity<Employee> {
   String _email;
   Tasks tasks = new Tasks();
   
+  String get name => '${lastName}, ${firstName}';
+  
   String get email => _email;
   set email(String email) {
     _email = email;
@@ -23,6 +25,22 @@ class Employee extends ConceptEntity<Employee> {
            '    lastName: ${lastName}\n'
            '    email: ${email}\n'
            '  }\n';
+  }
+  
+  /**
+   * Compares two employess based on last names, then on first names.
+   * If the result is less than 0 then the first member is less than the second,
+   * if it is equal to 0 they are equal and
+   * if the result is greater than 0 then the first is greater than the second.
+   */
+  int compareTo(Employee employee) {
+    if (lastName != null && firstName != null) {
+      int comparison = lastName.compareTo(employee.lastName);
+      if (comparison == 0) {
+        comparison = firstName.compareTo(employee.firstName);
+      }
+      return comparison;
+    }
   }
   
   Map<String, Object> toJson() {

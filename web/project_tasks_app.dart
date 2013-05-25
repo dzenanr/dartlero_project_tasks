@@ -47,9 +47,13 @@ save() {
 }
 
 main() {
-  tasksModel = new TasksModel();
+  //tasksModel = new TasksModel();
+  // using singleton (one object only) pattern http://en.wikipedia.org/wiki/Singleton_pattern
+  tasksModel = TasksModel.one();
   employees = tasksModel.employees;
   projects = tasksModel.projects;
+  //tasksModel.init(); // comment load to reinit
   load();
+  //tasksModel.display();
 }
 

@@ -30,6 +30,7 @@ class TaskTable extends WebComponent {
 
   delete(task) {
     tasks.remove(task);
+    task.employee.tasks.remove(task);
   }
 
 }
