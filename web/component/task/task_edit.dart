@@ -10,7 +10,6 @@ class TaskEdit extends WebComponent {
   Task task;
 
   update() {
-    //InputElement webTask = query("#edit-task-url");
     InputElement description = query("#edit-task-description");
     Element message = query("#edit-task-message");
     var error = false;
@@ -22,9 +21,8 @@ class TaskEdit extends WebComponent {
     }
     */
     if (!error) {
-      //task.url = new Uri.fromString(webTask.value);
       task.description = description.value;
-      var taskTable = document.query('task-table').xtag;
+      var taskTable = document.query('#task-table').xtag;
       taskTable.showTaskEdit = false;
     }
   }

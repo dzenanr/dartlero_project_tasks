@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
     <title>Projects</title>
-    <task rel="components" href="project_add.html">
-    <task rel="components" href="project_edit.html">
-    <task rel="components" href="../task/task_table.html">
+    <link rel="import" href="project_add.html">
+    <link rel="import" href="project_edit.html">
+    <link rel="import" href="../task/task_table.html">
   </head>
   <body>
     <element name="project-table" extends="span">
@@ -46,7 +46,7 @@
         </table>
         <br/>
         <div template if="showProjectTasks">
-          <task-table
+          <task-table id="task-table"
             project="{{ project }}"
             tasks="{{ project.tasks }}"
           >

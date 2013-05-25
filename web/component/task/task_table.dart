@@ -4,6 +4,7 @@ import 'package:dartlero_project_tasks/dartlero_project_tasks.dart';
 import 'package:web_ui/web_ui.dart';
 
 class TaskTable extends WebComponent {
+  Employee employee;
   Project project;
   Tasks tasks;
   Task task;

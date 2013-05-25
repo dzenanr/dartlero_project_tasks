@@ -24,7 +24,7 @@ class TaskAdd extends WebComponent {
       task.description = description.value;
       if (tasks.add(task)) {
         message.text = 'added';
-        var taskTable = document.query('task-table').xtag;
+        var taskTable = document.query('#task-table').xtag;
         taskTable.tasks.order();
       } else {
         message.text = 'task with the same project and employee already exists';

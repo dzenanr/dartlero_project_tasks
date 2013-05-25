@@ -4,9 +4,9 @@
   <head>
     <meta charset="utf-8">
     <title>Employees</title>
-    <link rel="components" href="employee_add.html">
-    <link rel="components" href="employee_edit.html">
-    <link rel="components" href="../task/task_table.html">
+    <link rel="import" href="employee_add.html">
+    <link rel="import" href="employee_edit.html">
+    <link rel="import" href="../task/task_table.html">
   </head>
   <body>
     <element name="employee-table" extends="span">
@@ -48,7 +48,7 @@
         </table>
         <br/>
         <div template if="showEmployeeTasks">
-          <task-table
+          <task-table id="task-table"
             employee="{{ employee }}"
             tasks="{{ employee.tasks }}"
           >

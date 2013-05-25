@@ -4,53 +4,47 @@
   <head>
     <meta charset="utf-8">
     <title>Links</title>
-    <link rel="components" href="link_add.html">
-    <link rel="components" href="link_edit.html">
+    <link rel="import" href="task_add.html">
+    <link rel="import" href="task_edit.html">
   </head>
   <body>
-    <element name="x-link-table" extends="span">
+    <element name="task-table" extends="span">
       <template>
-        <div template if="showLinkAdd">
-          <x-link-add
-            category="{{ category }}"
-            links="{{ links }}">
-          </x-link-add>
+        <div template if="showTaskAdd">
+          <task-add
+            project="{{ project }}"
+            tasks="{{ tasks }}">
+          </task-add>
         </div>
         <div template if="showLinkEdit">
-          <x-link-edit
-            category="{{ category }}"
-            links="{{ links }}"
-            link="{{ link }}">
-          </x-link-edit>
+          <task-edit
+            project="{{ project }}"
+            tasks="{{ tasks }}"
+            task="{{ task }}">
+          </task-edit>
         </div>
         <table>
           <caption class="marker">
-            Links of {{ category.code }} category
-            <button id="addLinkButton" on-click="add()">Show Add</button>
+            Tasks of {{ project.code }} project
+            <button id="addTaskButton" on-click="add()">Show Add</button>
           </caption>
           <tr>
-            <th>Web Link</th>
             <th>Description</th>
             <th>Edit</th>
             <th>Remove</th>
           </tr>
-          <tbody template iterate="link in links.toList()">
+          <tbody template iterate="task in tasks.toList()">
             <tr>
-              <td>
-                <a href="{{ link.url.toString() }}">
-                  {{ link.code }}
-                </a>
-              </td>
-              <td>{{ link.description }}</td>
-              <td><button id="editLinkButton" on-click="edit(link)">
+              <td>{{ task.description }}</td>
+              <td><button id="editTaskButton" on-click="edit(task)">
                 Edit</button>
               </td>
-              <td><button on-click="delete(link)">Remove</button></td>
+              <td><button on-click="delete(task)">Remove</button></td>
             </tr>
           </tbody>
         </table>
       </template>
-      <script type="application/dart" src="link_table.dart"></script>
+      <script type="application/dart" src="task_table.dart"></script>
     </element>
   </body>
 </html>
