@@ -1,5 +1,6 @@
-.buildlog
 packages
+.buildlog
+pubspec.lock
 web/out
 *.js
 *.js.deps
