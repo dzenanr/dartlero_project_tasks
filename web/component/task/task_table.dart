@@ -8,8 +8,9 @@ class TaskTable extends WebComponent {
   Project project;
   Tasks tasks;
   Task task;
-
+  @observable
   bool showTaskAdd = false;
+  @observable
   bool showTaskEdit = false;
 
   add() {

@@ -33,7 +33,7 @@
             <th>Remove</th>
             <th>Show</th>
           </tr>
-          <tbody template iterate="employee in employees.toList()">
+          <tbody template repeat="employee in employees.internalList">
             <tr>
               <td>{{ employee.firstName }}</td>
               <td>{{ employee.lastName }}</td>

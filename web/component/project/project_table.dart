@@ -6,9 +6,11 @@ import 'package:web_ui/web_ui.dart';
 class ProjectTable extends WebComponent {
   Projects projects;
   Project project;
-
+  @observable
   bool showProjectAdd = false;
+  @observable
   bool showProjectEdit = false;
+  @observable
   bool showProjectTasks = false;
 
   add() {
@@ -33,8 +35,11 @@ class ProjectTable extends WebComponent {
   }
 
   showTasks(project) {
-    showProjectTasks = true;
-    this.project = project;
+    showProjectTasks = !showProjectTasks;
+    if (showProjectTasks) {
+      this.project = project;
+      project.tasks.internalList = toObservable(project.tasks.internalList);
+      project.tasks.order();
+    }
   }
-
 }

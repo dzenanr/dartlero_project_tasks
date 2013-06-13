@@ -32,7 +32,7 @@
             <th>Remove</th>
             <th>Show</th>
           </tr>
-          <tbody template iterate="project in projects.toList()">
+          <tbody template iterate="project in projects.internalList">
             <tr>
               <td>{{ project.name }}</td>
               <td>{{ project.description }}</td>

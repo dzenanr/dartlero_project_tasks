@@ -1,6 +1,6 @@
 import 'dart:html';
 import 'dart:json';
-
+import 'package:web_ui/web_ui.dart';
 import 'package:dartlero/dartlero.dart';
 import 'package:dartlero_project_tasks/dartlero_project_tasks.dart';
 
@@ -22,7 +22,7 @@ loadProjects() {
   String json = window.localStorage['dartlero_projects'];
   if (json != null) {
     projects.fromJson(parse(json));
-  } 
+  }
   projects.order();
 }
 
@@ -55,5 +55,7 @@ main() {
   //tasksModel.init(); // comment load to reinit
   load();
   //tasksModel.display();
+  employees.internalList = toObservable(employees.internalList);
+  projects.internalList = toObservable(projects.internalList);
 }
 

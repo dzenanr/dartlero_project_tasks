@@ -6,9 +6,11 @@ import 'package:web_ui/web_ui.dart';
 class EmployeeTable extends WebComponent {
   Employees employees;
   Employee employee;
-
+  @observable
   bool showEmployeeAdd = false;
+  @observable
   bool showEmployeeEdit = false;
+  @observable
   bool showEmployeeTasks = false;
 
   add() {
@@ -33,8 +35,11 @@ class EmployeeTable extends WebComponent {
   }
 
   showTasks(employee) {
-    showEmployeeTasks = true;
-    this.employee = employee;
+    showEmployeeTasks = !showEmployeeTasks;
+    if (showEmployeeTasks) {
+      this.employee = employee;
+      employee.tasks.internalList = toObservable(employee.tasks.internalList);
+      employee.tasks.order();
+    }
   }
-
 }

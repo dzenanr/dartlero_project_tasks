@@ -10,8 +10,8 @@ class ProjectEdit extends WebComponent {
   update() {
     InputElement description = query("#edit-project-description");
     project.description = description.value;
-    var projectTable = document.query('#project-table').xtag;
+    var projectTable = query('#project-table').xtag;
+    projectTable.projects.order();
     projectTable.showProjectEdit = false;
   }
-
 }

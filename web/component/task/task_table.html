@@ -23,11 +23,11 @@
         </div>
         <table>
           <caption template if="project != null" class="marker">
-            Tasks of {{ project.name }} 
+            Tasks of {{ project.name }}
             <button id="addTaskButton" on-click="add()">Show Add</button>
           </caption>
           <caption template if="employee != null" class="marker">
-            Tasks of {{ employee.name }} 
+            Tasks of {{ employee.name }}
           </caption>
           <tr>
             <th template if="employee != null">Project</th>
@@ -36,7 +36,7 @@
             <th>Edit</th>
             <th template if="project != null">Remove</th>
           </tr>
-          <tbody template iterate="task in tasks.toList()">
+          <tbody template iterate="task in tasks.internalList">
             <tr>
               <td template if="employee != null">{{ task.project.name }}</td>
               <td template if="project != null">{{ task.employee.name }}</td>

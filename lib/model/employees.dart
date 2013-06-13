@@ -1,13 +1,13 @@
 part of dartlero_project_tasks;
 
-class Employee extends ConceptEntity<Employee> { 
+class Employee extends ConceptEntity<Employee> {
   String lastName;
   String firstName;
   String _email;
-  Tasks tasks = new Tasks();
-  
+  Tasks tasks = new Tasks(); // external relationship
+
   String get name => '${lastName}, ${firstName}';
-  
+
   String get email => _email;
   set email(String email) {
     _email = email;
@@ -15,9 +15,9 @@ class Employee extends ConceptEntity<Employee> {
       code = email;
     }
   }
-  
+
   Employee newEntity() => new Employee();
-  
+
   String toString() {
     return '  {\n'
            '    code: ${code}\n'
@@ -26,7 +26,7 @@ class Employee extends ConceptEntity<Employee> {
            '    email: ${email}\n'
            '  }\n';
   }
-  
+
   /**
    * Compares two employess based on last names, then on first names.
    * If the result is less than 0 then the first member is less than the second,
@@ -42,7 +42,7 @@ class Employee extends ConceptEntity<Employee> {
       return comparison;
     }
   }
-  
+
   Map<String, Object> toJson() {
     Map<String, Object> entityMap = new Map<String, Object>();
     entityMap['code'] = code;

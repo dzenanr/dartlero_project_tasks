@@ -29,5 +29,4 @@ class ProjectAdd extends WebComponent {
       }
     }
   }
-
 }
