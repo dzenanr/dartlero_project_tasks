@@ -24,12 +24,12 @@ class TaskTable extends WebComponent {
     }
   }
 
-  edit(task) {
+  edit(Task task) {
     showTaskEdit = true;
     this.task = task;
   }
 
-  delete(task) {
+  delete(Task task) {
     tasks.remove(task);
     task.employee.tasks.remove(task);
   }

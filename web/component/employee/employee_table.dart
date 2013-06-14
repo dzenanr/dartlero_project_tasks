@@ -24,17 +24,17 @@ class EmployeeTable extends WebComponent {
     }
   }
 
-  edit(employee) {
+  edit(Employee employee) {
     showEmployeeEdit = true;
     this.employee = employee;
   }
 
-  delete(employee) {
+  delete(Employee employee) {
     employees.remove(employee);
     showEmployeeTasks = false;
   }
 
-  showTasks(employee) {
+  showTasks(Employee employee) {
     showEmployeeTasks = !showEmployeeTasks;
     if (showEmployeeTasks) {
       this.employee = employee;

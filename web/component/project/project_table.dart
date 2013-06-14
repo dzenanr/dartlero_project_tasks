@@ -24,17 +24,17 @@ class ProjectTable extends WebComponent {
     }
   }
 
-  edit(project) {
+  edit(Project project) {
     showProjectEdit = true;
     this.project = project;
   }
 
-  delete(project) {
+  delete(Project project) {
     projects.remove(project);
     showProjectTasks = false;
   }
 
-  showTasks(project) {
+  showTasks(Project project) {
     showProjectTasks = !showProjectTasks;
     if (showProjectTasks) {
       this.project = project;
