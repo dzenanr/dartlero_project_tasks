@@ -7,6 +7,7 @@ class Employee extends ConceptEntity<Employee> {
   Tasks tasks = new Tasks(); // external relationship
 
   String get name => '${lastName}, ${firstName}';
+  String get nameCode => '${lastName}-${firstName}';
 
   String get email => _email;
   set email(String email) {

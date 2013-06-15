@@ -35,11 +35,16 @@ class EmployeeTable extends WebComponent {
   }
 
   showTasks(Employee employee) {
-    showEmployeeTasks = !showEmployeeTasks;
-    if (showEmployeeTasks) {
+    ButtonElement employeeTasks = query("#${employee.nameCode}");
+    if (!showEmployeeTasks && employeeTasks.text == 'Show') {
+      showEmployeeTasks = true;
       this.employee = employee;
       employee.tasks.internalList = toObservable(employee.tasks.internalList);
       employee.tasks.order();
+      employeeTasks.text = 'Hide';
+    } else if (showEmployeeTasks && employeeTasks.text == 'Hide') {
+      showEmployeeTasks = false;
+      employeeTasks.text = 'Show';
     }
   }
 }

@@ -35,11 +35,16 @@ class ProjectTable extends WebComponent {
   }
 
   showTasks(Project project) {
-    showProjectTasks = !showProjectTasks;
-    if (showProjectTasks) {
+    ButtonElement projectTasks = query("#${project.nameCode}");
+    if (!showProjectTasks && projectTasks.text == 'Show') {
+      showProjectTasks = true;
       this.project = project;
       project.tasks.internalList = toObservable(project.tasks.internalList);
       project.tasks.order();
+      projectTasks.text = 'Hide';
+    } else if (showProjectTasks && projectTasks.text == 'Hide') {
+      showProjectTasks = false;
+      projectTasks.text = 'Show';
     }
   }
 }

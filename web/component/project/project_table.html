@@ -30,17 +30,17 @@
             <th>Description</th>
             <th>Edit</th>
             <th>Remove</th>
-            <th>Display</th>
+            <th>Tasks</th>
           </tr>
           <tbody template iterate="project in projects.internalList">
             <tr>
               <td>{{ project.name }}</td>
               <td>{{ project.description }}</td>
-              <td><button id="editProjectButton" on-click="edit(project)">
-                Edit</button>
-              </td>
+              <td><button on-click="edit(project)">Edit</button></td>
               <td><button on-click="delete(project)">Remove</button></td>
-              <td><button on-click="showTasks(project)">Tasks</button></td>
+              <td><button id="{{ project.nameCode }}"
+                          on-click="showTasks(project)">Show</button>
+              </td>
             </tr>
           </tbody>
         </table>

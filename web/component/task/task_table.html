@@ -41,10 +41,10 @@
               <td template if="employee != null">{{ task.project.name }}</td>
               <td template if="project != null">{{ task.employee.name }}</td>
               <td>{{ task.description }}</td>
-              <td><button id="editTaskButton" on-click="edit(task)">
-                Edit</button>
+              <td><button on-click="edit(task)">Edit</button></td>
+              <td template if="project != null">
+                <button on-click="delete(task)">Remove</button>
               </td>
-              <td template if="project != null"><button on-click="delete(task)">Remove</button></td>
             </tr>
           </tbody>
         </table>
