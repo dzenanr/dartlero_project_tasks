@@ -35,7 +35,7 @@ class EmployeeTable extends WebComponent {
   }
 
   showTasks(Employee employee) {
-    ButtonElement employeeTasks = query("#${employee.nameCode}");
+    ButtonElement employeeTasks = query("#${employee.emailCode}");
     if (!showEmployeeTasks && employeeTasks.text == 'Show') {
       showEmployeeTasks = true;
       this.employee = employee;

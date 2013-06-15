@@ -6,9 +6,6 @@ class Employee extends ConceptEntity<Employee> {
   String _email;
   Tasks tasks = new Tasks(); // external relationship
 
-  String get name => '${lastName}, ${firstName}';
-  String get nameCode => '${lastName}-${firstName}';
-
   String get email => _email;
   set email(String email) {
     _email = email;
@@ -16,6 +13,9 @@ class Employee extends ConceptEntity<Employee> {
       code = email;
     }
   }
+
+  String get name => '${lastName}, ${firstName}';
+  String get emailCode => email.replaceAll('.', '-').replaceAll('@', '-');
 
   Employee newEntity() => new Employee();
 

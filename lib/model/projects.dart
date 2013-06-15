@@ -5,8 +5,6 @@ class Project extends ConceptEntity<Project> {
   String description;
   Tasks tasks = new Tasks(); // internal relationship
 
-  String get nameCode => name.replaceAll(' ', '-');
-
   String get name => _name;
   set name(String name) {
     _name = name;
@@ -14,6 +12,8 @@ class Project extends ConceptEntity<Project> {
       code = name;
     }
   }
+
+  String get nameCode => name.replaceAll(' ', '-');
 
   Project newEntity() => new Project();
 
