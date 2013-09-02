@@ -1,5 +1,5 @@
 import 'dart:html';
-import 'dart:json';
+import 'dart:convert';
 import 'package:web_ui/web_ui.dart';
 import 'package:dartlero/dartlero.dart';
 import 'package:dartlero_project_tasks/dartlero_project_tasks.dart';
@@ -13,7 +13,7 @@ loadEmployees() {
   if (json == null) {
     tasksModel.init();
   } else {
-    employees.fromJson(parse(json));
+    employees.fromJson(JSON.decode(json));
   }
   employees.order();
 }
@@ -21,7 +21,7 @@ loadEmployees() {
 loadProjects() {
   String json = window.localStorage['dartlero_projects'];
   if (json != null) {
-    projects.fromJson(parse(json));
+    projects.fromJson(JSON.decode(json));
   }
   projects.order();
 }
@@ -33,12 +33,12 @@ load() {
 
 saveEmployees() {
   window.localStorage['dartlero_employees'] =
-      stringify(employees.toJson());
+      JSON.encode(employees.toJson());
 }
 
 saveProjects() {
   window.localStorage['dartlero_projects'] =
-      stringify(projects.toJson());
+      JSON.encode(projects.toJson());
 }
 
 save() {
